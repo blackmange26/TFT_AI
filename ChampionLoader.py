@@ -25,7 +25,7 @@ class ChampionLoader(object):
                 'dps1': None if pd.isnull(r['dps1']) else int(r['dps1']),
                 'dps2': None if pd.isnull(r['dps2']) else int(r['dps2']),
                 'dps3': None if pd.isnull(r['dps3']) else int(r['dps3']),
-                'attack_speed': None if pd.isnull(r['attack_speed']) else int(r['attack_speed']),
+                'attack_speed': None if pd.isnull(r['attack_speed']) else float(r['attack_speed']),
                 'damage1': None if pd.isnull(r['damage1']) else int(r['damage1']),
                 'damage2': None if pd.isnull(r['damage2']) else int(r['damage2']),
                 'damage3': None if pd.isnull(r['damage3']) else int(r['damage3']),

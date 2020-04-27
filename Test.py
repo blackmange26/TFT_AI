@@ -9,8 +9,7 @@ from ChampionLoader import ChampionLoader
 from Game import Game
 
 Game = Game(ChampionLoader(), 'Aatrox', 'Fiora')
-Game.run()
+print(Game.run())
 # print(Game.r)
 # Champ_Object = ChampionLoader()
-# print(Champ_Object.getChampion('Aatrox'))
-# Champ.getChampion('Aatrox')
+# print(Champ_Object.getChampion('Jinx'))
