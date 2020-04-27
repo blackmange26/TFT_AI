@@ -5,12 +5,19 @@ Created on Sat Apr 25 23:11:29 2020
 @author: Eddie
 """
 
+
+
+#%
 from ChampionLoader import ChampionLoader
 from Game import Game
 from Agent import Agent
+Agent = Agent('Eddie', 'Aatrox', 2)
+%
 
-Agent = Agent ('Eddie', 'Aatrox', 5).shop
-print(Agent)
+print(Agent.shop)
+print(Agent.bench.values())
+print(Agent.buyChampion('Annie'))
+
 # Game = Game(ChampionLoader(), 'Aatrox', 'Fiora')
 # print(Game.run())
 # print(Game.r)
