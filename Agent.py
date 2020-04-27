@@ -28,3 +28,11 @@ class Agent(object):
 
     def getAction(self, gameState):
         pass
+
+    def shopRefresh(self):
+        if self.gold < 2:
+            return False
+        else:
+            self.shop = random.sample(list(self.champion_loader.data.keys()), 5)
+            self.gold = self.gold - 2
+            return True
