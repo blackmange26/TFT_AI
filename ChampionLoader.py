@@ -12,9 +12,11 @@ class ChampionLoader(object):
     def __init__(self):
         self.df = pd.read_csv('./data/champion_stats.csv')
         self.data = collections.defaultdict(dict)
-        for _, r in self.df.iterrows():
+        self.data_idx = collections.defaultdict(dict)
+        for idx, r in self.df.iterrows():
             id = r['champion']
             self.data[id] = {
+                'id': idx,
                 'champion': r['champion'],
                 'origin': r['origin'],
                 'class': r['class'],
@@ -33,7 +35,15 @@ class ChampionLoader(object):
                 'armor': None if pd.isnull(r['armor']) else int(r['armor']),
                 'magic_resist': None if pd.isnull(r['magic_resist']) else int(r['magic_resist'])
             }
+        
+        for idx, r in self.df.iterrows():
+            self.data_idx[idx] = {'champion': r['champion']}
+            
         del self.df
 
     def getChampion(self, champion):
         return self.data[champion]
+    
+    def getChampion_idx(self, idx):
+        return self.data_idx[idx]
+    
