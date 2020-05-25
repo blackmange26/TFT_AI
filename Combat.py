@@ -6,13 +6,13 @@ Created on Sat Apr 25 23:36:36 2020
 """
 import math
 
-class Game(object):
-    def __init__(self, champion_loader, player_champion, opponent_champion):
+class Combat(object):
+    def __init__(self, champion_loader, playeragent, opponentagent):
         self.champion_loader = champion_loader
-        self.player_champion = player_champion
-        self.opponent_champion = opponent_champion 
+        self.player_champion = playeragent.bench['c1']
+        self.opponent_champion = opponentagent.bench['c1']
     
-    def combat(self, ms):        
+    def combatTurn(self, ms):        
         if (ms % math.floor(1000/self.player_champion['attack_speed'])) == 0:
             self.update_champions(self.player_champion, self.opponent_champion)
             print('Player champion attacks')
@@ -53,7 +53,7 @@ class Game(object):
         self.combatPrep(self.player_champion, '1', self.opponent_champion, '1')
 
         while not self.combatEnd() and ms < 50000:
-            self.combat(ms)
+            self.combatTurn(ms)
             ms += 1
         if not self.combatEnd():
             return 'timeout'
